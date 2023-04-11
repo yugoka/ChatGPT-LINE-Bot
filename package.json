@@ -1,0 +1,20 @@
+{
+  "name": "chatgpt-line-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "clasp push && clasp deploy -i AKfycbwT-Eo7VxnONNFkhyHTuJQuNu7s_2niIdS5Ek9TVEIvthpmnxqr-per07iDRwovxrjPMQ"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yugoka/ChatGPT-LINE-Bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yugoka/ChatGPT-LINE-Bot/issues"
+  },
+  "homepage": "https://github.com/yugoka/ChatGPT-LINE-Bot#readme"
+}

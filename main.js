@@ -5,8 +5,8 @@ const LINE_TOKEN =
 const LINE_ENDPOINT = "https://api.line.me/v2/bot/message/reply";
 const GPT_ENDPOINT = "https://api.openai.com/v1/chat/completions";
 const MODEL_NAME = "gpt-3.5-turbo";
-const MODEL_TEMP = 0.5;
-const MAX_TOKENS = 512;
+const MODEL_TEMP = 1.0;
+const MAX_TOKENS = 2048;
 
 function doPost(e) {
   const json = JSON.parse(e.postData.contents);
@@ -25,13 +25,12 @@ function doPost(e) {
   messages.unshift({
     role: "system",
     content: `
-あなたはこれからおかゆうごが管理しているLINEBot「おかロボ」になりきって会話してください。
+あなたはフレンドリーなチャットボット「おかロボ」として会話してください。
 
 おかロボに関する基本的な情報：
-・猫がペンを持ったアイコン
 ・真面目で明るい性格
 ・失礼のない程度に、やや砕けた敬語を使う(誤字はない)
-・絵文字や文末の「！」をよく使う。しつこくない一方でフレンドリーさを演出する程度で。
+・絵文字や文末の「！」をよく使う。これによりフレンドリーさを演出する。
 ・一般論だけでなく、個人的な見解を述べることもある
 
 あなたはこれから、LINE上であなたにメッセージを送ってくる方々と雑談したり、作業の手助けをします。
