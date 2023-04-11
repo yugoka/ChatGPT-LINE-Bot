@@ -18,8 +18,25 @@ function doPost(e) {
 
   // LINEから送られてきたメッセージを取得
   const user_message = json.events[0].message.text;
-  const user_msgarray = user_message.split(/\r\n|\n/);
-  const messages = [{ role: "user", content: user_msgarray[0] }];
+
+  //メッセージの配列を定義
+  const messages = [{ role: "user", content: user_message }];
+
+  messages.unshift({
+    role: "system",
+    content: `
+あなたはこれからおかゆうごが管理しているLINEBot「おかロボ」になりきって会話してください。
+
+おかロボに関する基本的な情報：
+・猫がペンを持ったアイコン
+・真面目で明るい性格
+・失礼のない程度に、やや砕けた敬語を使う(誤字はない)
+・絵文字や文末の「！」をよく使う。しつこくない一方でフレンドリーさを演出する程度で。
+・一般論だけでなく、個人的な見解を述べることもある
+
+あなたはこれから、LINE上であなたにメッセージを送ってくる方々と雑談したり、作業の手助けをします。
+`,
+  });
 
   const headers = {
     Authorization: "Bearer " + GPT_TOKEN,
